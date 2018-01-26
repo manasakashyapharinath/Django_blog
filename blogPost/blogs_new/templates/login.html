@@ -1,0 +1,29 @@
+<html>
+<title>Welcome</title>
+
+<body>
+<h2>Welcome to "THE BLOG" </h2>
+<h3>{{error}}</h2>
+<form action="{% url 'loginSuccess' %}" method="POST" role="form">
+  {% csrf_token %}
+  
+  <p>User Name {{ form.userName }}</p>
+  <p>Password  {{ form.password }}</p>
+  <button type="submit">Login</button> <a href="{% url 'displaySignup'%}">Sign UP</a>
+  
+
+<h3> Click the link to view the blog </h3>
+<ul>
+	{% for bl in blog_list %}
+	
+	<li><a href="{% url 'displayBlog' bl.id %}">{{ bl.title }}</a></li>
+						
+	{% endfor %}
+
+	
+
+</ul>
+
+
+</body>
+</html>

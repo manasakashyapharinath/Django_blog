@@ -1,0 +1,30 @@
+<html>
+<title>Welcome</title>
+
+<body>
+<h2>Welcome to "THE BLOG" </h2>
+<h3>{{error}}</h2>
+<form action="{% url 'addTodo' %}" method="POST" role="form">
+  {% csrf_token %}
+  
+  <p>User Name {{ form.userName }}</p>
+  <p>Password  {{ form.password }}</p>
+  <p>Enter password again: <input type="text" name="pwd"/>
+  <button type="submit">create account</button> 
+  
+
+<h3> Click the link to view the blog </h3>
+<ul>
+	{% for bl in blog_list %}
+	
+	<li><a href="{% url 'displayBlog' bl.id %}">{{ bl.title }}</a></li>
+						
+	{% endfor %}
+
+	
+
+</ul>
+
+
+</body>
+</html>

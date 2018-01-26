@@ -1,0 +1,30 @@
+<html>
+<title>Blog App</title>
+
+<body>
+<a href="{% url 'addBlog' %}">Click here to add a blog</a>
+<form action="{% url 'submitBlog' %}" method="POST" role="form">
+
+  {% csrf_token %}
+  <p>Title      {{ form.title }}</p>
+  <p>Enter text {{ form.text }}</p>
+  
+  <button type="submit">Submit</button>
+</form>	
+
+
+<h2>Click the link to view blogs </h2>
+<ul>
+	{% for bl in post %}
+	
+	<li><a href="{% url 'displayBlog' bl.id %}">{{ bl.title }}</li>
+						
+	{% endfor %}
+
+	
+
+</ul>
+
+
+</body>
+</html>

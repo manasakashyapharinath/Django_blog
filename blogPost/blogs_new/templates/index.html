@@ -1,0 +1,13 @@
+<html>
+<title>Blog App</title>
+
+<body>
+
+<form action="{% url 'login' %}" method="POST" role="form">
+  {% csrf_token %}
+  {{ form.blogText }}
+  <button type="submit">Login</button>
+</form>
+
+</body>
+</html>
